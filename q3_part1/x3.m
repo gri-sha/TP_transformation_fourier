@@ -4,39 +4,34 @@ b = 25;
 Te = (b-a)/N;
 t = linspace(a, b, N);
 fe = 1/Te;
+f = linspace(-fe/2, fe/2, N);
 
-s0 = 3 * ones(1, N);
-S0 = tfour(s0);
-
-s0_rec = tfourinv(S0);  % signal reconstruit
+s3 = zeros(1, N); s3(N/2 + int64(fe*3)) = 1;  % dirac
+S3 = tfour(s3);
+s3_rec = tfourinv(S3);
 
 figure;
-
 subplot(1,3,2);
-plot(t, real(S0));
+plot(f, real(S3));
 title('Partie réelle');
 xlabel('Fréquence (Hz)');
 ylabel('Amplitude');
-xlim([-5 5]);
-ylim([-5 5]);
+xlim([-4 4]);
 axis square;
 
 subplot(1,3,3);
-plot(t, imag(S0));
+plot(f, imag(S3));
 title('Partie imaginaire');
 xlabel('Fréquence (Hz)');
 ylabel('Amplitude');
-xlim([-5 5]);
-ylim([-5 5]);
+xlim([-4 4]);
 axis square;
 
 
 subplot(1,3,1);
-plot(t, s0, 'b', t, s0_rec, 'r--');
+plot(t, s3, 'b', t, s3_rec, 'r--');
 title('Signal original vs Reconstruit');
 xlabel('Temps (s)');
 ylabel('Amplitude');
 legend('Original', 'Reconstruit');
-xlim([-5 5]);
-ylim([-5 5]);
 axis square;

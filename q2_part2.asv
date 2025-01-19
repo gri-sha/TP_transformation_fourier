@@ -1,0 +1,67 @@
+N = 65536;
+a = -25;
+b = 25;
+Te = (b-a)/N;
+t = linspace(a, b, N);
+fe = 1/Te;
+f = linspace(-fe/2, fe/2, N);
+
+Df = 30;
+f1 = 400;
+f2 = 900;
+
+function g = gf(f, Df, t)
+g = sin(2 * pi * f * t) + ...
+    sin(2 * pi * (f + Df) * t) - ...
+    2 * sin(2 * pi * (f + 2 * Df) * t);
+end
+
+figure;
+subplot(2,3,1);
+
+plot(t, gf(f1, Df, t));
+title('g_f_1(t)');
+xlabel('Temps (s)');
+ylabel('Amplitude');
+xlim([-0.1 0.1]);
+axis square;
+
+subplot(2,3,2);
+plot(f, tfour(gf(f1, Df, t)));
+title('G_f_1(f)');
+xlabel('Fréquence (Hz)');
+ylabel('Amplitude');
+xlim([-470 -390]);
+axis square;
+
+subplot(2,3,3);
+plot(f, tfour(gf(f1, Df, t)));
+title('G_f_1(f)');
+xlabel('Fréquence (Hz)');
+ylabel('Amplitude');
+xlim([390 470]);
+axis square;
+
+subplot(2,3,4);
+plot(t, gf(f2, Df, t));
+title('g_f_2');
+xlabel('Temps (s)');
+ylabel('Amplitude');
+xlim([-0.1 0.1]);
+axis square;
+
+subplot(2,3,5);
+plot(f, tfour(gf(f2, Df, t)));
+title('G_f_1(f)');
+xlabel('Fréquence (Hz)');
+ylabel('Amplitude');
+xlim([-970 890]);
+axis square;
+
+subplot(2,3,6);
+plot(f, (tfour(gf(f2, Df, t))));
+title('G_f_1(f)');
+xlabel('Fréquence (Hz)');
+ylabel('Amplitude');
+xlim([890 970]);
+axis square;

@@ -4,6 +4,7 @@ b = 25;
 Te = (b-a)/N;
 t = linspace(a, b, N);
 fe = 1/Te;
+f = linspace(-fe/2, fe/2, N);
 
 T_rect = 0.04;
 rect = @(t) (abs(t) <= T_rect/2);
@@ -13,19 +14,19 @@ s5_per_rec = tfourinv(S5_periodique);
 
 figure;
 subplot(1,3,2);
-plot(t, real(S5_periodique));
+plot(f, real(S5_periodique));
 title('Partie réelle');
 xlabel('Fréquence (Hz)');
 ylabel('Amplitude');
-xlim([-6 6]);
+xlim([-600 600]);
 axis square;
 
 subplot(1,3,3);
-plot(t, imag(S5_periodique));
+plot(f, imag(S5_periodique));
 title('Partie imaginaire');
 xlabel('Fréquence (Hz)');
 ylabel('Amplitude');
-xlim([-6 6]);
+xlim([-600 600]);
 axis square;
 
 
