@@ -6,6 +6,9 @@ t = linspace(a, b, N);
 fe = 1/Te;
 f = linspace(-fe/2, fe/2, N);
 
+Df = 30;
+f2 = 1280;
+
 function g = gf(k, Df, t)
 g = sin(2 * pi * k * t) + ...
     sin(2 * pi * (k + Df) * t) - ...
@@ -13,18 +16,9 @@ g = sin(2 * pi * k * t) + ...
 end
 
 figure;
-subplot(1,2,1)
-plot(t, gf(-4*fe-30, Df, t));
-title('f = -4*fe - 30');
-xlabel('Temps (s)');
+plot(1);
+plot(f, imag(tfour(gf(f2, Df, t))));
+title('G_1280(f)');
+xlabel('Fréquence (Hz)');
 ylabel('Amplitude');
-xlim([-0.1 0.1]);
-axis square;
-
-subplot(1,2,2)
-plot(t, gf(2*fe - 15, Df, t));
-title('f = 2*fe - 15');
-xlabel('Temps (s)');
-ylabel('Amplitude');
-xlim([-0.1 0.1]);
-axis square;
+xlim([-1000 1000]);
