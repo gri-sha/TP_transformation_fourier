@@ -2,7 +2,8 @@ N = 65536;
 a = -25;
 b = 25;
 Te = (b-a)/N;
-t = linspace(a, b, N);
+%t = linspace(a, b, N);
+t=(0:N-1)*Te+a;
 fe = 1/Te;
 f = linspace(-fe/2, fe/2, N);
 
