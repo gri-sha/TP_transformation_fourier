@@ -11,7 +11,7 @@ S6 = tfour(s6);
 s6_rec = tfourinv(S6);
 
 figure;
-subplot(1,3,2);
+subplot(1,2,2);
 plot(f, real(S6));
 title('Partie réelle');
 xlabel('Fréquence (Hz)');
@@ -20,17 +20,7 @@ xlim([-7 7]);
 ylim([-10 1500]);
 axis square;
 
-subplot(1,3,3);
-plot(f, imag(S6));
-title('Partie imaginaire');
-xlabel('Fréquence (Hz)');
-ylabel('Amplitude');
-xlim([-fe/2 fe/2]);
-ylim([-10 10]);
-axis square;
-
-
-subplot(1,3,1);
+subplot(1,2,1);
 plot(t, s6, 'b', t, s6_rec, 'r--');
 title('Signal original vs Reconstruit');
 xlabel('Temps (s)');

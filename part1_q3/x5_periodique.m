@@ -13,7 +13,7 @@ S5_periodique = tfour(s5_periodique);
 s5_per_rec = tfourinv(S5_periodique);
 
 figure;
-subplot(1,3,2);
+subplot(1,2, 2);
 plot(f, real(S5_periodique));
 title('Partie réelle');
 xlabel('Fréquence (Hz)');
@@ -21,16 +21,7 @@ ylabel('Amplitude');
 xlim([-600 600]);
 axis square;
 
-subplot(1,3,3);
-plot(f, imag(S5_periodique));
-title('Partie imaginaire');
-xlabel('Fréquence (Hz)');
-ylabel('Amplitude');
-xlim([-600 600]);
-axis square;
-
-
-subplot(1,3,1);
+subplot(1,2, 1);
 plot(t, s5_periodique, 'b', t, s5_per_rec, 'r--');
 title('Signal original vs Reconstruit');
 xlabel('Temps (s)');

@@ -25,8 +25,8 @@ d1_nf = m .* cos(2*pi*f1*t);
 d2_nf = m .* cos(2*pi*f2*t);
 
 % filtered spectres
-D1 = real(tfour(d1_nf)) .* filtre;
-D2 = real(tfour(d2_nf)) .* filtre;
+D1 = real(tfour(d1_nf)) .* filtre*2;
+D2 = real(tfour(d2_nf)) .* filtre*2;
 
 % restored signals
 d1 = tfourinv(D1);
