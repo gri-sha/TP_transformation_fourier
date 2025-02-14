@@ -8,7 +8,7 @@ f = linspace(-fe/2, fe/2, N);
 
 T_rect = 0.04;
 rect = @(t) (abs(t) <= T_rect/2);
-s5_periodique = rect(mod(t, T_rect));
+s5_periodique = rect(mod(t, T_rect*2));
 S5_periodique = tfour(s5_periodique);
 s5_per_rec = tfourinv(S5_periodique);
 
