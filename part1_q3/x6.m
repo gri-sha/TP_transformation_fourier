@@ -27,4 +27,4 @@ xlabel('Temps (s)');
 ylabel('Amplitude');
 legend('Original', 'Reconstruit');
 xlim([-10 10]);
-axis square;
+c
