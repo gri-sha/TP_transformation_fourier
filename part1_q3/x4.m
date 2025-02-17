@@ -1,5 +1,3 @@
-clear all; 
-
 % Paramètres
 N = 65536;
 a = -25;
@@ -58,5 +56,3 @@ xlabel('Fréquence (Hz)');
 ylabel('Amplitude');
 xlim([-4 4]);
 axis square;
-
-

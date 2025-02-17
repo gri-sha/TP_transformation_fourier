@@ -27,5 +27,3 @@ xlabel('Fréquence (Hz)');
 ylabel('Amplitude');
 xlim([-3 3]);
 axis square;
-
-
