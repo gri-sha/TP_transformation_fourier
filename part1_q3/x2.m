@@ -12,16 +12,15 @@ s2_rec = tfourinv(S2);
 
 
 figure;
-subplot(1,2, 1);
-plot(t, s2, 'b', t, s2_rec, 'r--');
-title('Signal original vs Reconstruit');
-xlabel('Temps (s)');
+subplot(1,3,2);
+plot(f, real(S2));
+title('Partie réelle');
+xlabel('Fréquence (Hz)');
 ylabel('Amplitude');
-legend('Original', 'Reconstruit');
-xlim([-1 1]);
+xlim([-5 5]);
 axis square;
 
-subplot(1,2,2);
+subplot(1,3,3);
 plot(f, imag(S2));
 title('Partie imaginaire');
 xlabel('Fréquence (Hz)');
@@ -30,3 +29,11 @@ xlim([-5 5]);
 axis square;
 
 
+subplot(1,3,1);
+plot(t, s2, 'b', t, s2_rec, 'r--');
+title('Signal original vs Reconstruit');
+xlabel('Temps (s)');
+ylabel('Amplitude');
+legend('Original', 'Reconstruit');
+xlim([-1 1]);
+axis square;s
