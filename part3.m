@@ -2,8 +2,7 @@ N = 65536;
 a = -25;
 b = 25;
 Te = (b-a)/N;
-%t = linspace(a, b, N);
-t=(0:N-1)*Te+a;
+t = linspace(a, b, N);
 fe = 1/Te;
 f = linspace(-fe/2, fe/2, N);
 
@@ -25,8 +24,8 @@ d1_nf = m .* cos(2*pi*f1*t);
 d2_nf = m .* cos(2*pi*f2*t);
 
 % filtered spectres
-D1 = real(tfour(d1_nf)) .* filtre*2;
-D2 = real(tfour(d2_nf)) .* filtre*2;
+D1 = real(tfour(d1_nf)) .* filtre;
+D2 = real(tfour(d2_nf)) .* filtre;
 
 % restored signals
 d1 = tfourinv(D1);

@@ -1,4 +1,4 @@
- % read the image (it should be with sides equalto a power of 2)
+% read the image (it should be with sides equalto a power of 2)
 [im, map] = imread('images/ndg-bellecour.png');
 im = double(im);
 
